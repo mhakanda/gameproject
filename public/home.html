@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Game Project</title>
+    <link rel="shortcut icon" href="pics/icon.png" />
+    <link rel="stylesheet" href="css/bootstrap.css">
+    <link rel="stylesheet" href="css/mycustomize.css">
+    <link rel="stylesheet" href="css/mycustomize1.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    </head>
+  <body>
+
+  <!-- <nav class="navbar navbar-inverse"> -->
+  <nav class="navbar navbar-default navbar-fixed-top">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="http://www.wcer.wisc.edu/">
+          <img src="pics/logo.png" width="150" height="48" alt="">
+        </a>
+      </div>
+      <div class="collapse navbar-collapse" id="myNavbar">
+        <ul class="nav navbar-nav navbar-right">
+          <li class="active"><a href="home.html">Home</a></li>
+          <li><a href="instruction.html">Instruction</a></li>
+          <li><a href="#">Sign In</a></li>
+          <li><a href="contactus.html">Contact Us</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <div class="container" style="margin-top:70px;background:green;opacity:.8;">
+    <div class="container" style="background:red;width:50%;float:left;">
+      <h1>Welcome to the game</h1>
+    </div>
+    <div class="container" style="float:left;background:yellow;width:50%">
+      <h2><button onclick="myFunction()">New Game</button>
+      <button style="display:inline;">Time: <span id = 'ck'>0 </span> sec</button></h2>
+      <!-- <h2><input onclick="myFunction() type="button" value="Start Over"></h2> -->
+    </div>
+<div id="container" style="margin-top:90px;text-align:center">
+    <div class="box0" style="display: inline-block;">
+      <img id = 'pic0' src="pics/2.jpg" alt="HTML5 Icon" style="width:150px;height:150px";>
+    </div>
+</div>
+    <div id="container1" style="margin-top:20px;">
+     <div class="box1">
+       <img id = 'pic1' src="pics/2.jpg" alt="HTML5 Icon" style="width:150px;height:150px";>
+     </div>
+     <div class="box2">
+       <img id = 'pic2' src="pics/2.jpg" alt="HTML5 Icon" style="width:150px;height:150px";>
+     </div>
+     <div class="box3">
+       <img id = 'pic3' src="pics/2.jpg" alt="HTML5 Icon" style="width:150px;height:150px";>
+     </div>
+     <!-- <div class="box1"></div> -->
+     <div class="box4">
+       <img id = 'pic4' src="pics/2.jpg" alt="HTML5 Icon" style="width:150px;height:150px";>
+     </div>
+     <div class="box5">
+       <img id = 'pic5' src="pics/2.jpg" alt="HTML5 Icon" style="width:150px;height:150px";>
+     </div>
+    </div>
+    <div id="container1" style="margin-top:20px;margin-bottom:20px">
+     <div class="box6">
+       <img id = 'pic6' src="pics/2.jpg" alt="HTML5 Icon" style="width:150px;height:150px";>
+     </div>
+     <div class="box7">
+       <img id = 'pic7' src="pics/2.jpg" alt="HTML5 Icon" style="width:150px;height:150px";>
+     </div>
+     <div class="box8">
+       <img id = 'pic8' src="pics/2.jpg" alt="HTML5 Icon" style="width:150px;height:150px";>
+     </div>
+     <!-- <div class="box1"></div> -->
+     <div class="box9">
+       <img id = 'pic9' src="pics/2.jpg" alt="HTML5 Icon" style="width:150px;height:150px";>
+     </div>
+     <div class="box10">
+       <!-- <img id = 'pic10' src="pics/red-number-0.jpg" alt="HTML5 Icon" style="width:150px;height:150px";> -->
+       <img id = 'pic10' src="pics/2.jpg" alt="HTML5 Icon" style="width:150px;height:150px";>
+     </div>
+    </div>
+     <!-- <div class="box1"></div> -->
+  </div>
+
+  <script type="text/javascript">
+  //randomInteger will create a random integer between mininteger and maxinteger, both inclusive
+  randomInteger = function(mininteger,maxinteger){
+    return mininteger+Math.floor((Math.random() * (maxinteger+1-mininteger)));
+  }
+  //samplingNonRepeat will create a random sample of length b from l
+  //it is non repeatative
+  samplingNonRepeat = function(l,b){
+  g = [];
+  for (i = 0; i < b; i++) {
+        r = Number(randomInteger(0,l.length-1));
+        g.push(l[r]);
+        l.splice(r,1);
+    };
+    return g
+  };
+
+var c = 0;
+var b = [1,10];
+// var ll = 0;
+//
+// function clockc() {
+// ll=ll+1;
+//  console.log(ll);
+// }
+// //var gg = setInterval(clockc, 1000);
+// console.log(gg);
+// console.log(typeof gg);
+myFunction = function(){
+
+    //clearInterval(myTimer);
+
+var b = [1,10];
+
+    //console.log(hh);
+    var top1 = samplingNonRepeat([0,1,2,3,4,5,6,7,8,9],b[0]);
+    var bot1 = samplingNonRepeat([0,1,2,3,4,5,6,7,8,9],b[1]);
+    //alert('hello')
+    document.getElementById("pic0").src = "pics/red-number-"+top1[0].toString()+".jpg";
+    document.getElementById("pic1").src = "pics/red-number-"+bot1[0].toString()+".jpg";
+    document.getElementById("pic2").src = "pics/red-number-"+bot1[1].toString()+".jpg";
+    document.getElementById("pic3").src = "pics/red-number-"+bot1[2].toString()+".jpg";
+    document.getElementById("pic4").src = "pics/red-number-"+bot1[3].toString()+".jpg";
+    document.getElementById("pic5").src = "pics/red-number-"+bot1[4].toString()+".jpg";
+    document.getElementById("pic6").src = "pics/red-number-"+bot1[5].toString()+".jpg";
+    document.getElementById("pic7").src = "pics/red-number-"+bot1[6].toString()+".jpg";
+    document.getElementById("pic8").src = "pics/red-number-"+bot1[7].toString()+".jpg";
+    document.getElementById("pic9").src = "pics/red-number-"+bot1[8].toString()+".jpg";
+    document.getElementById("pic10").src = "pics/red-number-"+bot1[9].toString()+".jpg";
+  //   var ll = 0;
+  //   //console.log(ll);
+  //   function clock() {
+  //   ll=ll+1;
+  //   //console.log(ll);
+  //    document.getElementById("ck").innerHTML=ll.toString();
+  //  };
+   //
+  //   var hh = setInterval(clock, 1000);
+   //
+  //   clearInterval(hh);
+  //   //console.log(hh);
+  //   c = c+1
+  //   console.log(c);
+  };
+    // var g = document.getElementsByClassName('st');
+    // g.onclick = function(){
+    //   alert('Hello you clicked the pics')
+    // };
+
+  </script>
+  </body>
+</html>

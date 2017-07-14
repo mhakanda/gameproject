@@ -1,0 +1,72 @@
+.jumbotron{
+    color: coral;
+    color: lavender;
+
+    opacity: 1;
+    color: rgba(255, 99, 71,1);
+    /*color: darkred;*/
+    background-image: url("156.jpg");
+    /*background-color: lightblue;*/
+    /*background-repeat: no-repeat;*/
+    background-size: cover;
+    /*background-color: lightblue;*/
+
+}
+.jumbotron h1{
+ opacity = 1.0;
+ }
+ .hi h1{
+     color: tomato;
+ }
+ .para1{
+   background-color:coral;
+   opacity: .7;
+   color: black;
+   border-radius: 20px;
+ }
+ /*color:#fff;background-color:#337ab7;border-color:#2e6da4*/
+.navbar-brand{
+  padding:0px 15px}
+
+.navbar-default .navbar-nav > li > a:hover, .navbar-default .navbar-nav > li > a:focus {
+  color: #000;  /*Sets the text hover color on navbar*/
+  }
+
+.navbar-default .navbar-nav > .active > a, .navbar-default .navbar-nav > .active >
+   a:hover, .navbar-default .navbar-nav > .active > a:focus {
+  color: midnightblue; /*BACKGROUND color for active*/
+  /*background-color: whitesmoke;*/
+  background-color: #bdcbf5;
+  }
+.navbar-default {
+      background-color: #e3f2fd;
+      border-color: #e3f2fd;
+
+  }
+  .navbar-default .navbar-nav > li > a{
+    color: midnightblue;
+    font-weight: bold;
+    font-size:1.2em;
+  }
+
+.dropdown-menu > li > a:hover,
+.dropdown-menu > li > a:focus {
+  background-color: #e3f2fd;
+  border-color: #e3f2fd;
+     text-decoration: none;
+    background-color: #66CCFF;  /*change color of links in drop down here*/
+     }
+
+.nav > li > a:hover,
+.nav > li > a:focus {
+      text-decoration: none;
+      background-color: silver; /*Change rollover cell color here*/
+    }
+.footer{
+  background-color: #e3f2fd;
+  border-color: #e3f2fd;
+  height: 30px;
+  width: 100%;
+  /*color: gainsboro;*/
+  color: tan;
+}
