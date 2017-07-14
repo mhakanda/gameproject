@@ -7,8 +7,8 @@ res.send(' ');
 
 });
 
-app.listen(port)
+//app.listen(port)
 
-// app.listen(port,()=>{
-//   console.log(`Server is up at port ${port}`);
-// });
+app.listen(port,()=>{
+  console.log(`Server is up at port ${port}`);
+});
