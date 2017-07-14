@@ -7,7 +7,7 @@ app.get('/',(req,res)=>{
 //var jj = (__dirname + '/public'+'/home.html');
 //res.send(jj)
 //res.render(jj);
-res.send("")
+res.send("");
 
 });
 
