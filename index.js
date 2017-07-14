@@ -4,10 +4,10 @@ var app = express();
 app.use(express.static(__dirname + '/public'));
 app.get('/',(req,res)=>{
 //res.send(' Hello world');
-var jj = (__dirname + '/public'+'/home.html');
+//var jj = (__dirname + '/public'+'/home.html');
 //res.send(jj)
 //res.render(jj);
-res.send(jj)
+res.send("")
 
 });
 
