@@ -61,6 +61,9 @@ var c = samplingNonRepeat([0,1,2],1)[0];
 var h = targetsRepeat(allpics,b,c);
 var top = h[0];
 var bot = h.slice(1,);
+//console.log('number of target: ',c+1);
+//console.log(top);
+//console.log(bot);
 document.getElementById("pic0").src = "pics/"+ top+".png";
 document.getElementById("pic1").src = "pics/"+ bot[0]+".png";
 document.getElementById("pic2").src = "pics/"+ bot[1]+".png";
@@ -68,11 +71,13 @@ document.getElementById("pic3").src = "pics/"+ bot[2]+".png";
 document.getElementById("pic4").src = "pics/"+ bot[3]+".png";
 document.getElementById("pic5").src = "pics/"+ bot[4]+".png";
 document.getElementById("pic6").src = "pics/"+ bot[5]+".png";
+document.getElementById("mypara").innerHTML = "Game starts...";
 //-------------------------------------------------------------------
+localStorage.repeat = c+1;
 localStorage.state = 1;//state 1 means middle of game, 0 means game over
 localStorage.top = top;
 localStorage.bot = bot;
-localStorage.isCompleted = 0;
+localStorage.isCompleted = 0; //for starting
 //localStorage.removeItem(picId);
 var picId = ['pic1','pic2','pic3','pic4','pic5','pic6']
 localStorage.picId = picId;
@@ -98,18 +103,27 @@ matchingAction = function(nuM){
   //console.log(localStorage);
   if (Number(localStorage.state)){
     //console.log('Inside if');
-  if (top===bot[nuM-1]){
-    d.src = "pics/"+"y1"+".jpg";
-    localStorage.state = 0;
-    //d.className += "nullCursor";
-    var picId = localStorage.picId;
-    picId = picId.split(",");
-    for (j in picId){document.getElementById(picId[j]).classList.add("nullCursor");}
-    localStorage.isCompleted = 1;
-    document.getElementById("buttonId").classList.remove("disabled");
-  }
-  else {d.src = "pics/"+"x1"+".jpg";
-d.classList.add("nullCursor");}
-}
+    if (top===bot[nuM-1]){
+      d.src = "pics/"+"y1"+".jpg";
+      d.classList.add("nullCursor");
+      localStorage.repeat = Number(localStorage.repeat) - 1;
+      //console.log(localStorage.repeat);
+      document.getElementById("mypara").innerHTML = "Get them all..";
+      if (!(Number(localStorage.repeat))){
+        localStorage.state = 0;
+        //d.className += "nullCursor";
+        var picId = localStorage.picId;
+        picId = picId.split(",");
+        for (j in picId){document.getElementById(picId[j]).classList.add("nullCursor");}
+        localStorage.isCompleted = 1;
+        document.getElementById("buttonId").classList.remove("disabled");
+        document.getElementById("mypara").innerHTML = "Game over...";
+        // document.getElementById("mypara").textContent = "hioo";
+        //console.log(localStorage);
+      }
+    }
+    else {d.src = "pics/"+"x1"+".jpg";
+          d.classList.add("nullCursor");}
+    }
 };
 //----------------------------------------
