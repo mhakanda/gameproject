@@ -1,17 +1,50 @@
 #container1 {
     display: flex;
     justify-content: space-between;
+    /*border: solid;*/
 }
-.box0 .box1 .box2 .box3 .box4 .box5 .box6 .box7 .box8 .box9 .box10{
+.number{
+  display: flex;
+  flex-direction: row;
+  /*justify-content: center;*/
+  justify-content: space-between;
+  /*border: solid;*/
+}
+.b1{
+  margin-top: 5%;
+  background: blue;
+  font-size: 30px;
+  width: 31%;
+  /*visibility: visible;*/
+  visibility: hidden;
+}
+.b2{
+  margin-top: 5%;
+  background: blue;
+  font-size: 30px;
+  width: 31%;
+  visibility: hidden;
+}
+.b3{
+  margin-top: 5%;
+  background: blue;
+  font-size: 30px;
+  width: 31%;
+  visibility: hidden;
+}
+
+.box0 .box1 .box2 .box3 .box4 .box5 .box6{
   width: 150px;
   height: 150px;
   background: red;
 }
-#pic1,#pic2,#pic3 ,#pic4, #pic5 ,#pic6 ,#pic7, #pic8, #pic9, #pic10
+#pic1,#pic2,#pic3 ,#pic4, #pic5 ,#pic6
 { cursor: pointer; }
 .nullCursor{
   cursor: default !important;
 }
+
+
 .button-wrapper {
   /*background: darkorange;*/
   display: table-cell;
@@ -25,7 +58,7 @@
 }
 #mypara{
   position: relative;
-  top: 50%;
+  top: 35%;
   transform: translateY(-50%);
   float: left;
   font-size: 1.7em;

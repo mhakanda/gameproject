@@ -1,4 +1,7 @@
 //---------------------------------------------------------new code--
+var v1 = document.getElementsByClassName('b1');
+var v2 = document.getElementsByClassName('b2');
+var v3 = document.getElementsByClassName('b3');
 //randomInteger will create a random integer between mininteger and maxinteger, both inclusive
 randomInteger = function(mininteger,maxinteger){
   return Number(mininteger+Math.floor((Math.random() * (maxinteger+1-mininteger))));
@@ -61,11 +64,13 @@ var c = samplingNonRepeat([0,1,2],1)[0];
 var h = targetsRepeat(allpics,b,c);
 var top = h[0];
 var bot = h.slice(1,);
-//console.log('number of target: ',c+1);
+// var pp = 1;
+// console.log('number of target: ',c+1);
 //console.log(top);
 //console.log(bot);
 document.getElementById("pic0").src = "pics/"+ top+".png";
 document.getElementById("pic1").src = "pics/"+ bot[0]+".png";
+// document.getElementById("pic1").style.border = "none";
 document.getElementById("pic2").src = "pics/"+ bot[1]+".png";
 document.getElementById("pic3").src = "pics/"+ bot[2]+".png";
 document.getElementById("pic4").src = "pics/"+ bot[3]+".png";
@@ -81,8 +86,28 @@ localStorage.isCompleted = 0; //for starting
 //localStorage.removeItem(picId);
 var picId = ['pic1','pic2','pic3','pic4','pic5','pic6']
 localStorage.picId = picId;
-for (j in picId){document.getElementById(picId[j]).classList.remove("nullCursor");}
+for (j in picId){
+  document.getElementById(picId[j]).classList.remove("nullCursor");
+document.getElementById(picId[j]).style.border = "none";}
+
 document.getElementById("buttonId").classList.add("disabled");
+v1[0].style.visibility='hidden';
+v2[0].style.visibility='hidden';
+v3[0].style.visibility='hidden';
+
+if ((c+1)===1){
+  // console.log('hi im 1');
+  v1[0].style.visibility='visible';
+  }
+  else if ((c+1)===2) {
+    v1[0].style.visibility='visible';
+    v2[0].style.visibility='visible';
+  }
+  else if ((c+1)===3) {
+    v1[0].style.visibility='visible';
+    v2[0].style.visibility='visible';
+    v3[0].style.visibility='visible';
+  }
 };
 //----------------------------------
 myNewgame();
@@ -99,12 +124,37 @@ matchingAction = function(nuM){
   var d = document.getElementById("pic"+String(nuM))
   var top = localStorage.top;
   var bot = localStorage.bot;
+  var win = new Audio('audio/win.wav');
+  var lose = new Audio('audio/lose.wav');
+// console.log(px);
+// px = px + 1;
   bot = bot.split(",");
+
+  // console.log('hi');
+// if (v3[0].style.visibility==='visible'){
+//
+// }
+// console.log();
   //console.log(localStorage);
   if (Number(localStorage.state)){
     //console.log('Inside if');
     if (top===bot[nuM-1]){
-      d.src = "pics/"+"y1"+".jpg";
+      d.style.border = "thick solid #0000FF";
+      win.play();
+
+      if (Number(localStorage.repeat)===3){
+        v3[0].style.visibility='hidden';
+      } else if (Number(localStorage.repeat)===2) {
+        v2[0].style.visibility='hidden';
+      } else if (Number(localStorage.repeat)===1) {
+        v1[0].style.visibility='hidden';
+      }
+
+
+      // var pp = 1;
+      // console.log(px);
+      // px = px + 1;
+      // d.src = "pics/"+"y1"+".jpg";
       d.classList.add("nullCursor");
       localStorage.repeat = Number(localStorage.repeat) - 1;
       //console.log(localStorage.repeat);
@@ -118,12 +168,17 @@ matchingAction = function(nuM){
         localStorage.isCompleted = 1;
         document.getElementById("buttonId").classList.remove("disabled");
         document.getElementById("mypara").innerHTML = "Game over...";
+        // var px = 1;
         // document.getElementById("mypara").textContent = "hioo";
         //console.log(localStorage);
       }
     }
-    else {d.src = "pics/"+"x1"+".jpg";
-          d.classList.add("nullCursor");}
+    else {
+          // d.src = "pics/"+"x1"+".jpg";
+          d.style.border = "thick solid red";
+          d.classList.add("nullCursor");
+          lose.play();
+        }
     }
 };
 //----------------------------------------
