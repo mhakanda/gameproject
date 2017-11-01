@@ -58,7 +58,8 @@ for (k = 0;k<b;k++){
 // Put the object into storage
 myNewgame = function(){
 localStorage.clear();
-var allpics = ['1111','1112','1121','1122','1211','1212','1221','1222'];
+// var allpics = ['1111','1112','1121','1122','1211','1212','1221','1222'];
+var allpics = ['111','112','121','122','211','212','221','222'];
 var b = 6;//number of options
 var c = samplingNonRepeat([0,1,2],1)[0];
 var h = targetsRepeat(allpics,b,c);
